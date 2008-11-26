@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<message_catalog package_key="layout-managed-subsite" locale="en_US" charset="ISO-8859-1">
+
+  <msg key="Action">Action</msg>
+  <msg key="Active_Includelets">Active Includelets</msg>
+  <msg key="Add">Add</msg>
+  <msg key="Add_checked_applications">Add checked applications</msg>
+  <msg key="Add_checked_includelets">Add checked includelets</msg>
+  <msg key="Add_single_application">Add single application</msg>
+  <msg key="Application">Application</msg>
+  <msg key="available_applications">These applications support includelets and can be mounted under the current subsite:</msg>
+  <msg key="Copy">Copy</msg>
+  <msg key="configure">Run the configuration wizard</msg>
+  <msg key="configure_configurability">The following parameters offer the administrator some control over the degree to which a user can configure their own personal page sets.</msg>
+  <msg key="Delete">Delete</msg>
+  <msg key="Delete_checked_elements">Delete checked elements</msg>
+  <msg key="Description">Description</msg>
+  <msg key="Edit_master_layout">Edit the layout manager master layout</msg>
+  <msg key="Edit_user_pages">Edit user layouts</msg>
+  <msg key="layout_elements_bound">Layout elements bound to "%package_key%" mounted at "%package_url%"</msg>"
+  <msg key="Includelet">Includelet</msg>
+  <msg key="Manage">Manage</msg>
+  <msg key="Manage_applications_and_includelets">Manage applications and Includelets</msg>
+  <msg key="Manage_Includelets">Manage Includelets</msg>
+  <msg key="mounted_applications">These applications and includelets are mounted under the current subsite:</msg>
+  <msg key="plain">Plain</msg>
+  <msg key="Return_to_Add_Applications">Return to Add Applications</msg>
+  <msg key="Singleton">Singleton</msg>
+  <msg key="State">State</msg>
+  <msg key="Supported_Includelets">Supported Includelets</msg>
+  <msg key="tabbed">Tabbed</msg>
+  <msg key="Title">Title</msg>
+  <msg key="URL">URL</msg>
+  <msg key="wizard_install_help">Install the applications and includelet packages that you want to make available.  The wizard will mount the applications you choose and make their includelets available.</msg>
+  <msg key="wizard_intro">This wizard will take you through the steps necessary to configure the current subsite to use the layout manager.  Before configuring you should:</msg>
+  <msg key="wizard_navigation_help">Decide the navigation style you wish this includelet and subsite to use.</msg>
+  <msg key="wizard_redirect_help">Decide whether or not you want the parent subsite to display a layout manager page rather than its standard index page.</msg>
+  <msg key="wizard_user_pagesets_help">Decide whether or not individual users should have their own private pageset.  pages, or whether you want to configure one pageset configuration to be shared by all visitors.  Creating individual private pagesets is more flexible but also consumes more system resources.</msg>
+  <msg key="wizard_user_pageset_no_help"> Check "no" if you want users to share a single page set configuration.  This is more efficient of system resources but only administrators will be able to reconfigure the layout.</msg>
+  <msg key="wizard_user_pageset_yes_help">Check "Yes" if you'd like the layout manager package to create each user their own custom page set configuration.  This will allow users to to move includelets from column to column or page to page, to hide includelets, etc.</msg>
+  <msg key="you_can_create">You can create new layout elements from the following includelets.  Those marked as a "singleton" can only be created once, though you can make identical copies to display on multiple pages if you like:</msg>
+
+</message_catalog>
