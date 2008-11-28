@@ -23,20 +23,18 @@ ad_proc layout_managed_subsite::install::after_install {} {
             -template /packages/layout-managed-subsite/lib/layout-admin-includelet \
             -required_privilege admin
 
-        # Should define an acs-subsite-includelets package
-    
         layout::includelet::new \
             -name subsites_includelet \
             -description "Display Subsites" \
             -title "Subsites" \
-            -application acs-subsite \
+            -application layout-managed-subsite \
             -template /packages/acs-subsite/lib/subsites
     
         layout::includelet::new \
             -name applications_includelet \
             -description "Display Subsite Applications" \
             -title "Applications" \
-            -application acs-subsite \
+            -application layout-managed-subsite \
             -template /packages/acs-subsite/lib/applications
 
         subsite::new_subsite_theme \
