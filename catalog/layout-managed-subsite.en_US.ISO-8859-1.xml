@@ -25,6 +25,8 @@
   <msg key="mounted_applications">These applications and includelets are mounted under the current subsite:</msg>
   <msg key="plain">Plain</msg>
   <msg key="Return_to_Add_Applications">Return to Add Applications</msg>
+  <msg key="Service">Service</msg>
+  <msg key="services">The following services support includelets which can be added to this subsite:</msg>
   <msg key="Singleton">Singleton</msg>
   <msg key="State">State</msg>
   <msg key="Supported_Includelets">Supported Includelets</msg>

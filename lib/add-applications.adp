@@ -1,3 +1,5 @@
+<p>#layout-managed-subsite.services#</p>
+<listtemplate name="services"></listtemplate>
 <p>#layout-managed-subsite.mounted_applications#</p>
 <listtemplate name="mounted_applications"></listtemplate>
 <p>#layout-managed-subsite.available_applications#</p>

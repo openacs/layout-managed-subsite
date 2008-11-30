@@ -10,21 +10,56 @@ ad_page_contract {
 
 }
 
-set package_id [ad_conn package_id]
+set subsite_id [ad_conn subsite_id]
+set subsite_url [ad_conn subsite_url]
+set subsite_node_id [ad_conn subsite_node_id]
+
 if { ![info exists pageset_id] } {
-    set pageset_id [layout::pageset::get_master_template_id -package_id $package_id]
+    set pageset_id [layout::pageset::get_master_template_id -package_id $subsite_id]
 }
 
 if { ![info exists return_url] } {
-}
     set return_url [ad_conn url]?[ad_conn query]
+}
 
+db_multirow -extend {manage_url package_url includelets} services get_services {} {
+    set manage_url [export_vars -base [ad_conn package_url]admin/layouts/manage-includelets \
+                    { pageset_id {package_url $subsite_url} {package_id $subsite_id}
+                      package_key {admin_url $return_url} }]
+    set includelets {}
+    foreach includelet [db_list_of_lists get_service_includelets {}] {
+        if { [lindex $includelet 1] == 1 } {
+            lappend includelets [lindex $includelet 0]
+        } else {
+            lappend includelets "[lindex $includelet 0]([lindex $includelet 1])"
+        }
+    }
+    set includelets [join $includelets ", "]
+}
 
-set package_id_list [concat [site_node::get_children \
-                                -node_id [ad_conn subsite_node_id] \
-                                -package_type apm_application \
-                                -element package_id] \
-                            [ad_conn subsite_id]]
+template::list::create \
+    -name services \
+    -multirow services \
+    -key package_key \
+    -elements {
+        package_key {
+            label {[_ layout-managed-subsite.Service]}
+        }
+        includelets {
+            label {[_ layout-managed-subsite.Active_Includelets]}
+        }
+        manage {
+            label {[_ layout-managed-subsite.Action]}
+            link_url_col manage_url
+            link_html { title #layout-managed-subsite.Manage_Includelets# class button }
+            display_template { [_ layout-managed-subsite.Manage_Includelets] }
+        }
+    }
+
+set package_id_list [site_node::get_children \
+                        -node_id [ad_conn subsite_node_id] \
+                        -package_type apm_application \
+                        -element package_id]
 
 set package_key_list [site_node::get_children \
                          -node_id [ad_conn subsite_node_id] \

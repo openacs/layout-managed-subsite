@@ -42,8 +42,8 @@ ad_proc layout_managed_subsite::install::after_install {} {
             -name "Layout Managed Subsite Tabbed" \
             -template /packages/layout-managed-subsite/lib/tabbed-master \
             -css "{/resources/openacs-default-theme/styles/default-master.css all}
-                  {/resources/openacs-default-theme/styles/forms.css all}
-                  {/resources/openacs-default-theme/styles/lists.css all}" \
+                  {/resources/acs-templating/forms.css all}
+                  {/resources/acs-templating/lists.css all}" \
             -form_template /packages/acs-templating/resources/forms/standard \
         -list_template /packages/acs-templating/resources/lists/table \
         -list_filter_template /packages/acs-templating/resources/lists/filters 
