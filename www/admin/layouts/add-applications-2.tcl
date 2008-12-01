@@ -24,9 +24,9 @@ db_transaction {
             lappend added_package_keys $one_package_key
 
             # Now mount the package_key under our URL
-            set package_key_id [subsite::auto_mount_application \
-                                   -node_id [ad_conn node_id] \
-                                   $one_package_key]
+            site_node::instantiate_and_mount \
+                -parent_node_id [ad_conn subsite_node_id] \
+                -package_key $one_package_key
 
         }
     }
