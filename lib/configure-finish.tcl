@@ -4,7 +4,7 @@
 ad_form -name configure-finish -form {
     foo:text(hidden),optional
 } -on_submit {
-    ad_returnredirect index
+    ad_returnredirect [ad_conn subsite_url]
     ad_script_abort
 }
 

@@ -6,53 +6,43 @@ ad_page_contract {
 
 ad_form -name configure-subsite-integration -form {
     {template_style:integer(radio)
-        {options {{"Tabbed navigation" 0}
-                  {"Plain navigation (works best if there's only one layout manager page)" 1}
-                  {"Use my existing custom master template" 2}}}
+        {options {{"[_ layout-managed-subsite.tabbed_navigation]" 0}
+                  {"[_ layout-managed-subsite.plain_navigation]" 1}
+                  {"[_ layout-managed-subsite.use_existing_master]" 2}}}
         {values {0}}
-        {label "Choose master template?"}
-    }
-    {pageset_index_page_p:boolean(radio)
-        {options {{Yes 1} {No 0}}}
-        {values {1}}
-        {label "Should the parent subsite serve the layout manager package as its index page?"}
+        {label "[_ layout-managed-subsite.choose_master]"}
     }
     {show_single_button_navbar_p:boolean(radio)
         {options {{Yes 1} {No 0}}}
         {values {0}}
-        {label "Should we show the navigation tabs when there's only one of them?"}
+        {label "[_ layout-managed-subsite.show_single_tab]"}
+    }
+    {show_empty_pages_p:boolean(radio)
+        {options {{Yes 1} {No 0}}}
+        {values {0}}
+        {label "[_ layout-managed-subsite.show_empty_pages]"}
     }
 } -on_submit {
 
     switch $template_style {
 
-        0 {parameter::set_value \
-               -parameter DefaultMaster \
-               -package_id [ad_conn subsite_id] \
-               -value /packages/layout-managed-subsite/lib/tabbed-master
-        }
+        0 {subsite::set_theme -theme layout_managed_subsite_tabbed}
 
-        1 {parameter::set_value \
-               -parameter DefaultMaster \
-               -package_id [ad_conn subsite_id] \
-               -value /packages/layout-managed-subsite/lib/plain-master
-        }
+        1 {subsite::set_theme -theme layout_managed_subsite_plain}
 
         2 {}
 
-    }
-
-    if { $pageset_index_page_p } {
-        parameter::set_value \
-            -parameter IndexInternalRedirectUrl \
-            -package_id [ad_conn subsite_id] \
-            -value /packages/layout-managed-subsite/www/
     }
 
     parameter::set_value \
         -parameter ShowSingleButtonNavbar \
         -package_id [ad_conn package_id] \
         -value $show_single_button_navbar_p
+
+    parameter::set_value \
+        -parameter ShowEmptyPages \
+        -package_id [ad_conn package_id] \
+        -value $show_empty_pages_p
 
     template::wizard::forward
 }
