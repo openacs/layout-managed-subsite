@@ -1,6 +1,5 @@
 ad_page_contract {
-    Configure the layout manager package's interaction with the subsite package in the 'ole
-    look and feel department.
+    Configure the layout managed subsite package's look and feel.
 } {
 }
 
@@ -21,6 +20,11 @@ ad_form -name configure-subsite-integration -form {
         {options {{Yes 1} {No 0}}}
         {values {0}}
         {label "[_ layout-managed-subsite.show_empty_pages]"}
+    }
+    {show_applications_p:boolean(radio)
+        {options {{Yes 1} {No 0}}}
+        {values {1}}
+        {label "[_ layout-managed-subsite.show_applications]"}
     }
 } -on_submit {
 
@@ -43,6 +47,11 @@ ad_form -name configure-subsite-integration -form {
         -parameter ShowEmptyPages \
         -package_id [ad_conn package_id] \
         -value $show_empty_pages_p
+
+    parameter::set_value \
+        -parameter ShowApplications \
+        -package_id [ad_conn package_id] \
+        -value $show_applications_p
 
     template::wizard::forward
 }

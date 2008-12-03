@@ -17,6 +17,7 @@
   <msg key="Configure_Subsite">Configure Subsite Integration</msg>
   <msg key="Congratulations">Congratulations! Configuration Is Complete</msg>
   <msg key="Copy">Copy</msg>
+  <msg key="Copy_checked_elements">Copy checked elements</msg>
   <msg key="choose_master">Choose master template?</msg>
   <msg key="configure">Run the configuration wizard</msg>
   <msg key="configure_configurability">The following parameters offer the administrator some control over the degree to which a user can configure their own personal page sets.</msg>
@@ -34,6 +35,7 @@
   <msg key="plain">Plain</msg>
   <msg key="plain_navigation">Plain navigation (works best if there's only one layout manager page)</msg>
   <msg key="Return_to_Add_Applications">Return to Add Applications</msg>
+  <msg key="show_applications">Should we always show a tab for each mounted application?</msg>
   <msg key="show_empty_pages">Should we show the navigation tabs for empty pages?</msg>
   <msg key="show_single_tab">Should we show the navigation tabs when there's only one of them?</msg>
   <msg key="Service">Service</msg>

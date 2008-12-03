@@ -1,6 +1,5 @@
 ad_page_contract {
     Let the admin configure whether or not we should create a pageset for every visitor.
-} {
 }
 
 ad_form -name configure-private-pagesets -form {

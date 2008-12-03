@@ -17,8 +17,9 @@
   <fullquery name="get_service_includelets">
     <querytext>
       select li.title, count(*)
-      from layout_includelets li, layout_elements le
-      where le.package_id = :subsite_id
+      from layout_includelets li, layout_elements le, layout_pages lp
+      where lp.pageset_id = :pageset_id
+        and le.page_id = lp.page_id
         and le.includelet_name = li.name
         and li.application = :package_key
       group by li.title
@@ -41,8 +42,10 @@
   <fullquery name="get_mounted_includelets">
     <querytext>
       select li.title, count(*)
-      from layout_includelets li, layout_elements le
-      where le.package_id = :package_id
+      from layout_includelets li, layout_elements le, layout_pages lp
+      where lp.pageset_id = :pageset_id
+        and le.package_id = :package_id
+        and le.page_id = lp.page_id
         and le.includelet_name = li.name
       group by li.title
       order by li.title

@@ -8,9 +8,9 @@ ad_page_contract {
     @cvs-id $Id$
 }
 
-layout::pageset::initialize -package_id [ad_conn package_id]
-
 # Now set up the wizard and off we go into configuration ecstasy!
+
+layout::pageset::initialize -package_id [ad_conn package_id]
 
 template::wizard::create -action configure -name configure -params {} -steps {
     1 -label "[_ layout-managed-subsite.Welcome]" -url /packages/layout-managed-subsite/lib/configure-help
@@ -21,13 +21,11 @@ template::wizard::create -action configure -name configure -params {} -steps {
     6 -label "[_ layout-managed-subsite.Configure_Subsite]" -url /packages/layout-managed-subsite/lib/configure-subsite-integration
     100 -label "[_ layout-managed-subsite.Congratulations]" -url /packages/layout-managed-subsite/lib/configure-finish
 }
-
 template::wizard::get_current_step
 
 # Beautify the context bar and title with the current wizard step's label.
 
 array set current_info [array get wizard:${wizard:current_id}]]
-set foo [array get current_info]
 set title $current_info(label)
 set context [list $title]
 

@@ -21,7 +21,14 @@ db_transaction {
 
         if { [lsearch -exact $copied_element_ids $one_element_id] == -1 } {
             lappend copied_element_ids $one_element_id
-            layout::element::copy -element_id $one_element_id -state hidden
+            array set element [layout::element::get -element_id $one_element_id]
+            set page_id $element(page_id)
+            set page_column $element(page_column)
+            set sort_key [db_string get_sort_key {}]
+            layout::element::clone \
+                -element_id $one_element_id \
+                -sort_key $sort_key \
+                -state hidden
         }
     }
 }

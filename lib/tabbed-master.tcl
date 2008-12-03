@@ -32,19 +32,26 @@ db_multirow -cache_key pageset_${pageset_id}_multirow_${user_id} -append \
                                              {page_num $tabindex}}]
 }
 
-subsite_navigation::define_pageflow -navigation_multirow navigation -group main -subgroup sub \
-    -show_applications_p [parameter::get -package_id [ad_conn subsite_id] \
-                             -parameter ShowApplications -default 1] \
-    -no_tab_application_list [parameter::get -package_id [ad_conn subsite_id] \
-                                 -parameter NoTabApplicationList -default ""]
+set show_applications_p [parameter::get -package_id [ad_conn subsite_id] \
+                            -parameter ShowApplications -default 1]
+set no_tab_application_list [parameter::get -package_id [ad_conn subsite_id] \
+                                -parameter NoTabApplicationList -default ""]
 
-if { [site_node::get_element -url [ad_conn package_url] -element parent_id] == \
-      $layout_manager_node_id } {
-    set instance_name [site_node::get_element -url [ad_conn package_url] \
-                          -element instance_name]
-    template::multirow append navigation main $instance_name [ad_conn package_url] \
-        "" $instance_name "" [template::multirow size navigation] "" \
-        main-navigation-active [template::multirow size navigation]
+subsite_navigation::define_pageflow -navigation_multirow navigation -group main -subgroup sub \
+    -show_applications_p $show_applications_p \
+    -no_tab_application_list $no_tab_application_list
+
+if { !$show_applications_p } {
+    array set package_node [site_node::get_from_url -exact -url [ad_conn package_url]]
+    if { $package_node(parent_id) == $layout_manager_node_id &&
+         [lsearch -exact $no_tab_application_list $package_node(package_key)] == -1 } {
+        set instance_name [site_node::get_element -url [ad_conn package_url] \
+                              -element instance_name]
+        template::multirow append navigation main $package_node(instance_name) \
+            [ad_conn package_url] "" $package_node(instance_name) "" \
+            [template::multirow size navigation] "" \
+            main-navigation-active [template::multirow size navigation]
+    }
 }
 
 set pageset_page_p 0

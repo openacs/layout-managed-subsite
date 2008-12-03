@@ -31,6 +31,9 @@ template::list::create \
         {[_ layout-managed-subsite.Delete_checked_elements]}
         [ad_conn package_url]admin/layouts/delete-elements
         {[_ layout-managed-subsite.Delete_checked_elements]}
+        {[_ layout-managed-subsite.Copy_checked_elements]}
+        [ad_conn package_url]admin/layouts/copy-elements
+        {[_ layout-managed-subsite.Copy_checked_elements]}
     " \
     -bulk_action_export_vars {
         package_id element_id admin_url return_url
