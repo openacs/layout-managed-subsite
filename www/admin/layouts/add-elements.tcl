@@ -7,13 +7,11 @@ ad_page_contract {
     @cvs-id $Id$
 
 } {
-    pageset_id:naturalnum,notnull
+    page_id:naturalnum,notnull
     package_id:naturalnum,notnull
     name:notnull,multiple
     return_url:notnull
 }
-
-permission::require_permission -object_id $pageset_id -privilege admin
 
 set added_names [list]
 
@@ -29,6 +27,7 @@ db_transaction {
 
             layout::element::new \
                 -package_id $package_id \
+                -page_id $page_id \
                 -includelet_name $one_name \
                 -state hidden \
                 -initialize

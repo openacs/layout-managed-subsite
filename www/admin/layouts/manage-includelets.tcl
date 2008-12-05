@@ -62,9 +62,12 @@ template::list::create \
         }
     }
 
+# Hide our new elements on the first page of the pageset (dotlrn design hangover)
+set page_id [layout::page::get_id -pageset_id $pageset_id]
+
 db_multirow -extend {add_url} includelets get_includelets {} {
     set add_url [export_vars -base [ad_conn package_url]admin/layouts/add-elements \
-                    { package_id pageset_id name title admin_url return_url}]
+                    { package_id page_id name title admin_url return_url}]
     set singleton_p [ad_decode $singleton_p t Yes f No $singleton_p]
 }
 
@@ -78,7 +81,7 @@ template::list::create \
         {[_ layout-managed-subsite.Add_checked_includelets]}
     " \
     -bulk_action_export_vars {
-        package_id pageset_id return_url admin_url
+        package_id page_id return_url admin_url
     } \
     -elements {
         name {
