@@ -28,7 +28,6 @@ db_transaction {
             lappend added_names $one_name
 
             layout::element::new \
-                -pageset_id $pageset_id \
                 -package_id $package_id \
                 -includelet_name $one_name \
                 -state hidden \
