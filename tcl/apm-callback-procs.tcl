@@ -1,5 +1,5 @@
 ad_library {
-    Installation procs for layout_managed_subsite-bridge
+    Installation procs for layout_managed_subsite
 
     @author Don Baccus (dhogaza@pacifier.com) Furfly (http://furfly.net)
 }
