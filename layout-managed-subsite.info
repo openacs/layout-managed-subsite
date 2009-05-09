@@ -17,7 +17,7 @@
 
         <provides url="layout-managed-subsite" version="1.0.1"/>
         <extends url="layout-manager" version="1.0.3"/>
-        <extends url="acs-subsite" version="5.5.0d4"/>
+        <extends url="acs-subsite" version="5.5.0d8"/>
 
         <callbacks>
           <callback type="after-install"  proc="layout_managed_subsite::install::after_install"/>
