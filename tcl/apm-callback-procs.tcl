@@ -47,6 +47,18 @@ ad_proc layout_managed_subsite::install::after_install {} {
             -form_template /packages/acs-templating/resources/forms/standard \
         -list_template /packages/acs-templating/resources/lists/table \
         -list_filter_template /packages/acs-templating/resources/lists/filters 
+
+        subsite::new_subsite_theme \
+            -key layout_managed_subsite_plain \
+            -name "Layout Managed Subsite Plain" \
+            -template /packages/layout-managed-subsite/lib/plain-master \
+            -css {{{href /resources/openacs-default-theme/styles/default-master.css} {media all}}
+                  {{href /resources/acs-templating/forms.css} {media all}}
+                  {{href /resources/acs-templating/lists.css} {media all}}} \
+            -form_template /packages/acs-templating/resources/forms/standard \
+        -list_template /packages/acs-templating/resources/lists/table \
+        -list_filter_template /packages/acs-templating/resources/lists/filters 
+
     }
 }
 

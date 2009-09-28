@@ -1,6 +1,7 @@
 ad_page_contract {
 
-  Build two-level tabbed navigation multirows for a pageset.
+  Plain master.  The only function of this is to wrap application pages with the theme
+  assigned to the page.  No navigation widget is built.
 
   @author Don Baccus (dhogaza@pacifier.com)
 
@@ -9,16 +10,10 @@ ad_page_contract {
 
 set user_id [ad_conn user_id]
 
-set subsite_node_id [site_node::get_node_id_from_object_id -object_id [ad_conn subsite_id]]
-set layout_manager_url \
-    [lindex [site_node::get_children \
-                -node_id $subsite_node_id \
-                -package_key layout-managed-subsite] 0]
-
-set package_id [site_node::get_object_id -node_id [site_node::get_node_id -url $layout_manager_url]]
-set package_node_id [site_node::get_node_id_from_object_id -object_id $package_id]
-
-set pageset_id [layout::pageset::get_user_pageset_id -package_id $package_id]
+set layout_manager_id [layout::package_id]
+set layout_manager_node_id [site_node::get_node_id_from_object_id -object_id $layout_manager_id]
+set layout_manager_url [site_node::get_url_from_object_id -object_id $layout_manager_id]
+set pageset_id [layout::pageset::get_user_pageset_id -package_id $layout_manager_id]
 
 # set a default title in case an included application page doesn't set it.  Should move
 # to the doc() array approach in the future.
