@@ -7,6 +7,7 @@ ad_page_contract {
     @cvs-id $Id$
 }
 
-set context [list "[_ layout-managed-subsite.Add_applications]"]
+set doc(title) [_ layout-managed-subsite.Add_applications]
+set context [list $doc(title)]
 set return_url [ad_conn url]?[ad_conn query]
 ad_return_template
