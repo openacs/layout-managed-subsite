@@ -5,10 +5,12 @@
   <fullquery name="get_elements">
     <querytext>
       select le.*
-      from layout_elements le, layout_pages lp
+      from layout_elements le, layout_pages lp, layout_includelets li
       where le.package_id = :package_id
         and lp.page_id = le.page_id
         and lp.pageset_id = :pageset_id
+        and le.includelet_name = li.name
+        and apm_package__is_child(li.application, :package_key)
       order by le.title
     </querytext>
   </fullquery>
