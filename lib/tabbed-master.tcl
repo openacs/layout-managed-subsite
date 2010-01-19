@@ -25,11 +25,10 @@ template::multirow create navigation group label href target \
 
 # Grab the pages for the user pageset
 db_multirow -cache_key pageset_${pageset_id}_multirow_${user_id} -append \
-    -unclobber -extend {group href target title lang accesskey class id} \
+    -unclobber -extend {group target title lang accesskey class id} \
      navigation select_pageset_pages {} {
     set group main
-    set href [export_vars -base $layout_manager_url {{pageset_id $pageset_id} \
-                                             {page_num $tabindex}}]
+    set href $layout_manager_url[ad_urlencode $href]
 }
 
 set show_applications_p [parameter::get -package_id [ad_conn subsite_id] \

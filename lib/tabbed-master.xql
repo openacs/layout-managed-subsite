@@ -4,7 +4,7 @@
 
   <fullquery name="select_pageset_pages">
     <querytext>
-      select lp.name as label, lp.sort_key as tabindex
+      select lp.name as label, lp.sort_key as tabindex, url_name as href
       from layout_pages lp
       where lp.pageset_id = :pageset_id
         and exists (select 1
