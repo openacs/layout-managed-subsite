@@ -21,7 +21,8 @@ db_transaction {
 
         if { [lsearch -exact $deleted_element_ids $one_element_id] == -1 } {
             lappend deleted_element_ids $one_element_id
-            layout::element::delete -element_id $one_element_id
+            layout::element::delete -element_id $one_element_id \
+                -uninitialize=[expr {![layout::element::clone_p -element_id $element_id]}]
         }
     }
 }
