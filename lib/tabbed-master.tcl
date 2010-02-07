@@ -66,6 +66,8 @@ for { set i 1 } { $i <= [template::multirow size navigation] } { incr i } {
     }
 }
 
+set show_tabs_p [expr { [template::multirow size navigation] > 1 || [parameter::get -package_id [ad_conn subsite_id] -parameter ShowSingleButtonNavbar -default 0]}]
+
 if { !$pageset_page_p } {
     array set theme \
         [layout::theme::get \
