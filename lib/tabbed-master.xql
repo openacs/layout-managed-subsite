@@ -10,6 +10,7 @@
         and exists (select 1
                     from layout_elements le, acs_object_party_privilege_map aoppm
                     where le.page_id = lp.page_id
+                      and le.state <> 'hidden'
                       and aoppm.object_id = le.package_id
                       and aoppm.party_id = :user_id
                       and aoppm.privilege = le.required_privilege)
