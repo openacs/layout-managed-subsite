@@ -119,7 +119,7 @@ template::list::create \
         {[_ layout-managed-subsite.Add_checked_applications]}
     " \
     -bulk_action_export_vars {
-        package_key pageset_id return_url
+        pageset_id return_url
     } \
     -elements {
         package_key {
