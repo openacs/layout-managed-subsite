@@ -19,7 +19,7 @@ with their own configurable pageset, or one pageset shared by all.
       cached is multipied by the number of users of the subsite.  This can cause poor
       cache performance or require a large cache size to be specified for the database
       cache pool.
-  <li>Users might confuse themselves by accidently hiding layout elements, moving them
+  <li>Users might confuse themselves by accidentally hiding layout elements, moving them
       to an unfamiliar page, etc.  This might increase the effort required to support
       a site substantially.
   <li>Having one shared layout pageset allows you to lay out the subsite precisely without
