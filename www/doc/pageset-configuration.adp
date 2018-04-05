@@ -19,7 +19,7 @@ When you create a new page, you must provide a human-readable page name, which c
 The page will be created with a default URL snippet derived from the human-readable name.
 The name is converted to lower case, spaces converted to "-", and non-alphanumeric characters
 other than "-" removed.  Its theme will be blank (in other words, will inherit the pageset
-theme), and the page will initally have two columns.
+theme), and the page will initially have two columns.
 <p>
 After the page has been created, you can edit the page's URL snippet (the character restrictions
 described above will be enforced, and URL snippets must be unique within a given
