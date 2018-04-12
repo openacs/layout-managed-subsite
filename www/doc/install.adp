@@ -7,7 +7,7 @@ subsite. If you forget some, you can install them afterwards and revisit the app
 admin UI pages to add the includelets and their associated applications to the subsite,
 but it's easiest to do so before running the wizard.
 <p>Each includelet package depends on an application package, typically a standalone package
-such as <i>forums</i>.  In some cases, an includelet package will provide it's own application,
+such as <i>forums</i>.  In some cases, an includelet package will provide its own application,
 for example the <i>content-includelet</i> package, which provides simple content management
 for an individual includelet but which is not meant to be used standalone outside of the
 <i>Layout Manager</i> environment.
