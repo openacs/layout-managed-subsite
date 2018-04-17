@@ -12,12 +12,12 @@ ad_form -name configure-configurability -form {
     {ShowShadeButton:boolean(radio)
         {label "Show \"Shade\" button on includelet title bars?"}
         {options {{Yes 1} {No 0}}}
-        {help_text "\"No\" will supress the display of \"shade\" widgets in includelet title bars"}
+        {help_text "\"No\" will suppress the display of \"shade\" widgets in includelet title bars"}
     }
     {ShowHideButton:boolean(radio)
         {label "Show \"Hide\" button on includelet title bars?"}
         {options {{Yes 1} {No 0}}}
-        {help_text "\"No\" will supress the display of \"hide\" widgets in includelet title bars"}
+        {help_text "\"No\" will suppress the display of \"hide\" widgets in includelet title bars"}
     }
     {ThemeChangeable:boolean(radio)
         {label "Allow users to change the includelet decoration theme?"}
